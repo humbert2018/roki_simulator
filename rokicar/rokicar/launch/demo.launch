@@ -1,0 +1,10 @@
+<launch> 
+    <node name="RokiSys" pkg="rokicar" type="RokiSys"/>
+    <node name="hadmap_navigation" pkg="hadmap_navigation" type="hadmap_navigation" >
+        <param name="map_path" type="string" value="$(find hadmap)/map/tianjingang.txt" />
+        <param name="extra_map_path" type="string" value="" />
+        <param name="setup_path" type="string" value="$(find hadmap_navigation)/param/BYD.yaml" />
+    </node> 
+    <node pkg="rosbag" type="play" name="play" args="$(find hadmap)/map/tianjingang.bag"/> 
+    <include file="$(find hadmap_visualizer)/launch/visualizer.launch"/> 
+</launch>
