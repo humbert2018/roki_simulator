@@ -80,12 +80,16 @@ perception_msgs::Objects RokiSystem::create_roki_info_msg()
         obj.bounding_box_size;
         obj.object_box_center;
 
+//----sh------box size----------
 		obj.object_box_size.x = car->size.x();
 		obj.object_box_size.y = car->size.y();
 		obj.object_box_size.z = car->size.z();
+		//
 
 		obj.object_box_orientation;
 		obj.object_box_orientation_absolute;
+
+//----sh------box absolute_velocity----------
 
         obj.absolute_velocity.x = ahead.x();
 		obj.absolute_velocity.y = ahead.y();
@@ -106,17 +110,16 @@ perception_msgs::Objects RokiSystem::create_roki_info_msg()
 		obj.contour_points;
 		obj.contour_points_absolute;
 
-
-		//
+//----sh------box center----------
 		obj.bounding_box_center.x = car->position.getX();
 		obj.bounding_box_center.y = car->position.getY();
 		obj.bounding_box_center.z = car->position.getZ();
 
-
+/*  sh--test
 		obj.pos_x = car->position.getX();
 		obj.pos_y = car->position.getY();
 		obj.pos_z = car->position.getZ();
-		//
+		*/
 
 		objs.objects.push_back(obj);
 	}
